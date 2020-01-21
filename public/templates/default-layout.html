@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{block name="title"}Mi Web{/block}</title>
+    {include file='public/includes/dependencies.html'}
+
+    <!-- Mis estilos -->
+    <link rel="stylesheet" href="{$base_url}/public/css/master.css">
+    {block name="css"}{/block}
+</head>
+
+<body class="d-flex flex-column">
+    <header class="text-center bg-light">
+        <div class="container mt-2 justify-content-end">
+            <div class="d-flex justify-content-end px-2 py-1 rounded" style="background: #dbdbdb">
+                <a class="btn btn-primary btn-sm" href="{$base_url}"><i class="fas fa-sign-in-alt"></i> Login</a>
+            </div>
+
+            <h1 class="display-4">Mi Web</h1>
+        </div>
+    </header>
+
+    <nav class="sticky-top navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{$base_url}">MENU</a>
+            <button class="navbar-toggler left-0" type="button" data-toggle="collapse" data-target="#main-menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div id="main-menu" class="collapse navbar-collapse"><br>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="{$base_url}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{$base_url}usuarios">Users</a></li>
+                </ul>
+
+                <form class="form-inline my-1 my-sm-0" action="#" method="post">
+                    <input class="form-control mr-2 my-2 my-sm-0" type="text" name="buscar" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-success my-2 my-sm-0" type="submit">Enviar</button>
+                </form>                   
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        {block name="before"}{/block}
+
+        <section class="container pt-3 pb-3">
+            {block name="main-header"}
+                <h1 class="mt-4">{block name="h1"}Encabezados (main-header){/block}</h1>
+            {/block}
+
+            {block name="main"}
+                <p>Contenido (main)</p>
+            {/block}
+        </section>
+
+        {block name="after"}{/block}
+    </main>
+
+    <footer class="mt-auto bg-dark text-light pt-4">
+        <div class="container">
+            {block name="footer"}
+                <div class="w-50 text-light">
+                    <ul>
+                        <li><a class="text-light" href="{$base_url}">Home</a></li>
+                        <li><a class="text-light" href="{$base_url}usuarios">Users</a></li>
+                    </ul>
+                </div>
+            {/block}
+        </div>
+
+        <p class="small text-center w-100">Copyright {date('Y')} &copy;</p>
+    </footer>
+</body>
+</html>

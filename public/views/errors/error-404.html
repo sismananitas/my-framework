@@ -1,0 +1,30 @@
+{extends file="public/templates/default-layout.html"}
+
+{block name="css"}
+    <style>
+        h1 {
+            margin: auto;
+        }
+        .msg {
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    </style>
+{/block}
+
+{block name="title"}Not Found{/block}
+
+{block name="main-header"}
+    <h1 class="text-center display-1 mt-5">404</h1>
+    <h2 class="text-center">Not Found</h2>
+{/block}
+
+{block name="nav-buttons"}{/block}
+
+{block name="main"}
+    <div class="msg">
+        <p>No se encontró la página que estás buscando.</p>
+
+        <a href="{$base_url}" class="btn-link">Volver al inicio</a>
+    </div>
+{/block}
