@@ -1,5 +1,6 @@
 /storage/cache/*.*
 /storage/templates_c
+/templates_c/*.*
 /vendor
 /node_modules
 .env

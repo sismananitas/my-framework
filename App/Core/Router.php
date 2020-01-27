@@ -18,8 +18,7 @@ class Router {
 
 	public function setRequestUri($requestUri)
 	{
-		if (strpos($requestUri, self::GET_PARAMS_DELIMITER))
-		{
+		if (strpos($requestUri, self::GET_PARAMS_DELIMITER)) {
 			$requestUri = strstr($requestUri, self::GET_PARAMS_DELIMITER, true);
 		}
 		$this->requestUri = $requestUri;
@@ -41,10 +40,8 @@ class Router {
 		$response = false;
 		$requestUri = $this->getRequestUri();
 
-		foreach ($this->routes as $route)
-		{
-			if ($route->checkIfMatch($requestUri))
-			{
+		foreach ($this->routes as $route) {
+			if ($route->checkIfMatch($requestUri)) {
 				$response = $route->execute();
 				// break para no seguir dando vueltas
 				// Ya se encontró la ruta correspondiente
@@ -57,20 +54,16 @@ class Router {
 
 	public function sendResponse($response)
 	{
-		if (is_string($response))
-		{
+		if (is_string($response)) {
 			echo $response;
-		}
-		else if (is_array($response))
-		{
+
+		} else if (is_array($response)) {
 			echo json_encode($response);
-		}
-		else if ($response instanceof Response)
-		{
+
+		} else if ($response instanceof Response) {
 			$response->execute();
-		}
-		else if ($response === false)
-		{
+
+		} else if ($response === false) {
 			header("HTTP/1.0 404 Not Found");
 			return view('errors.error-404');
 		}

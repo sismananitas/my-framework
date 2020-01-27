@@ -8,7 +8,7 @@ class Controller {
         $response = false;
 
         if (empty($_POST)) {
-            route(ROOT);
+            route(getenv('BASE_DIR'));
         }
         return $response;
     }
@@ -17,7 +17,7 @@ class Controller {
         $response = false;
 
         if (empty($_GET)) {
-            route(ROOT);
+            route(getenv('BASE_DIR'));
         }
         return $response;
     }

@@ -24,11 +24,11 @@ function view($view, $variables = []) {
     $view = str_replace('.', '/', $view); // Reemplaza los puntos de la cadena por slashes
     
     // Revisa la vista solicitada
-    if (is_file(views_path . $view . '.html')) {
-        $template = views_path . $view . '.html';
+    if (is_file(VIEWS_PATH . $view . '.html')) {
+        $template = VIEWS_PATH . $view . '.html';
         
     } else {
-        die('<h1>No se encontró la vista.</h1>');
+        die('<h1>No se encontró la vista.</h1>' . VIEWS_PATH . $view . '.html');
     }
     header('Content-type: text/html');
     return $smarty->display($template); // Devuelve la vista
@@ -70,7 +70,7 @@ function json_response($message = null, $code = 200)
         400 => '400 Bad Request',
         422 => 'Unprocessable Entity',
         500 => '500 Internal Server Error'
-        );
+    );
     // ok, validation error, or failure
     header('Status: '.$status[$code]);
     // return the encoded json

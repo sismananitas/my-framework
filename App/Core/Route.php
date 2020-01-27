@@ -14,7 +14,7 @@ class Route {
 
 	public function __construct($uri, $closure)
 	{
-		$this->uri = APP_DIRECTORY . $uri;
+		$this->uri = getenv('SUB_DIR') . $uri;
 		$this->closure = $closure;
 	}
 
@@ -75,6 +75,4 @@ class Route {
 		}
 		return call_user_func_array($closure, $parameters);
 	}
-
 }
-

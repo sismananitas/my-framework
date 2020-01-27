@@ -15,8 +15,8 @@ class Utils {
             $usuario = $_SESSION['user'];
         }
         
-        $smarty_obj->assign('base_url', ROOT);
-        $smarty_obj->assign('view_url', views_path);
+        $smarty_obj->assign('base_url', getenv('BASE_DIR'));
+        $smarty_obj->assign('view_url', VIEWS_PATH);
         $smarty_obj->assign('user', $usuario);
     }
 } // FIN DE LA CLASE

@@ -8,11 +8,16 @@ class Conexion {
     private $stmt;
 
     private function __construct() {
-        $database = DB_ENGINE . ':dbname=' . DB_NAME . ';host=' . DB_HOST . ';';
+        $database = getenv('DB_ENGINE') . ':dbname=' . getenv('DB_NAME') . ';host=' . getenv('DB_HOST') . ';';
 
         try {
             // CREA UN OBJETO PDO
-            $obj_pdo = new \PDO($database, DB_USER, DB_PASSWORD, DB_OPTIONS);
+            $obj_pdo = new \PDO(
+                $database,
+                getenv('DB_USER'),
+                getenv('DB_PASSWORD'),
+                getenv('DB_OPTIONS')
+            );
             $this->db = $obj_pdo;
 
         } catch (\PDOException $e) {
@@ -33,7 +38,7 @@ class Conexion {
         $response = $this->stmt->execute($params);
 
         if ($select) {
-            $response = $this->stmt->fetchAll(\PDO::FETCH_ASSOC);
+            $response = $this->stmt->fetchAll(\PDO::FETCH_CLASS, get_called_class());
             
         } else {
             $response = $this->rowCount();
