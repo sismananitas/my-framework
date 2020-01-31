@@ -21,8 +21,4 @@ class Controller {
         }
         return $response;
     }
-
-    protected function miHerencia() {
-        return 'Hola mundo';
-    }
 }

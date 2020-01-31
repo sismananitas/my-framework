@@ -54,7 +54,7 @@ class Model {
         $sql = substr($sql, 0, -1);
         $sql .= " FROM " . $this->table . " WHERE " . $this->primaryKey . " = ?";
 
-        $model = $this->con->query($sql, [$id['id']], true, true);
+        $model = $this->con->query($sql, [$id], true, true);
         return $model;
     }
 }

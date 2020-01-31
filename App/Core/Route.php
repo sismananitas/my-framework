@@ -67,8 +67,8 @@ class Route {
 				$instance = new $class;
 				return $instance->$method($parameters);
 
-			} else if (class_exists('App\Controllers\\' . $class)) {
-				$class_name = 'App\Controllers\\' . $class;
+			} else if (class_exists(CONTROLLER_NAMESPACE . $class)) {
+				$class_name = CONTROLLER_NAMESPACE . $class;
 				$instance = new $class_name;
 				return $instance->$method($parameters);
 			}
